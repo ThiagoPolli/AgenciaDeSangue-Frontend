@@ -1,0 +1,177 @@
+<div class="container">
+  <h2 class="mt-4">Candidato</h2>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dados Pessoais </li>
+  </ol>
+  <div class="container">
+    <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-success" role="alert" *ngIf="success == true">
+            Candidato Salvo/atualizado com sucesso!
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="erro == true">
+            {{ errors }}
+          </div>
+        </div>
+        <div class="row" *ngIf="candidato.imc">
+          <div class="col-md-12" >
+            <div>
+              <h3>IMC:  {{ candidato.imc.toFixed(2) }} - {{ candidato.imcResultado }} </h3>
+            </div>
+          </div>
+        </div>
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Nome: *</label>
+              <input type="text" [(ngModel)]="candidato.nome" name="nome" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">CPF: *</label>
+              <input type="text" [(ngModel)]="candidato.cpf" name="cpf" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">E-mail: </label>
+              <input type="email" [(ngModel)]="candidato.email" name="email" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Data de nascimento: </label>
+              <input type="text" [(ngModel)]="candidato.data_nasc" name="data_nasc" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Tipo Sanguíneo: </label>
+              <input type="text" [(ngModel)]="candidato.tipo_sanguineo" name="tipo_sanguineo" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">sexo: </label>
+              <input type="text" [(ngModel)]="candidato.sexo" name="sexo" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Mãe: </label>
+              <input type="text" [(ngModel)]="candidato.mae" name="mae" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Pai: </label>
+              <input type="text" [(ngModel)]="candidato.pai" name="pai" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Altura: </label>
+              <input type="number" [(ngModel)]="candidato.altura" name="altura" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Peso: </label>
+              <input type="number" [(ngModel)]="candidato.peso" name="peso" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Celular: </label>
+              <input type="text" [(ngModel)]="candidato.celular" name="celular" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Telefone Fixo: </label>
+              <input type="text" [(ngModel)]="candidato.telefone_fixo" name="telefone_fixo" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+        <ol class="breadcrumb mb-4">
+          <li class="breadcrumb-item active">Endereço</li>
+        </ol>
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Rua: </label>
+              <input type="text" [(ngModel)]="candidato.endereco" name="endereco" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="">Número: </label>
+              <input type="number" [(ngModel)]="candidato.numero" name="numero" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="">CEP: </label>
+              <input type="text" [(ngModel)]="candidato.cep" name="cep" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+        <!-- Inicio ROW -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Cidade: </label>
+              <input type="text" [(ngModel)]="candidato.cidade" name="cidade" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Estado: </label>
+              <input type="text" [(ngModel)]="candidato.estado" name="estado" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Fim ROW -->
+      </div>
+      <br /><br />
+      <div class="row">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-lg btn-success" *ngIf="!candidato.id">
+            <i class="fa fa-save"></i> Salvar</button>
+          <button type="submit" class="btn btn-lg btn-warning" *ngIf="candidato.id">
+            <i class="fa fa-sync-alt"></i> Atualizar</button>
+          <button type="button" class="btn btn-lg btn-danger ml-2" (click)="voltar()">
+            <i class="fa fa-arrow-alt-circle-left"></i> Voltar</button>
+        </div>
+      </div>
+      <br /><br />
+    </form>
+  </div>
+</div>

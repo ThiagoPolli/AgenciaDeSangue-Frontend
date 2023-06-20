@@ -1,0 +1,62 @@
+<div class="container">
+  <h2 class="mt-4">CANDIDATOS</h2>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consultar</li>
+  </ol>
+  <div class="container">
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="inputNome">Nome Candidato: </label>
+          <input type="text" name="nome" class="form-control" [(ngModel)]="nome">
+        </div>
+        <div class="col-md-6 d-flex align-items-center mt-md-auto ">
+
+          <button class="btn btn-outline-primary"(click)="search()"> Buscar</button>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-3">
+          <button type="button" routerLink="/candidato-forms" class="btn btn-success">
+            <i class="fa fa-plus"></i> Novo
+          </button>
+        </div>
+      </div>
+    </form>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Celular</th>
+              <th>Tipo sanguíneo</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of candidatos">
+              <td>{{ obj.nome }}</td>
+              <td>{{ obj.cpf }}</td>
+              <td>{{ obj.celular }}</td>
+              <td style="color: red; font-weight: bold; padding-left: 5%;">{{ obj.tipo_sanguineo }}</td>
+              <td>
+                <button routerLink="/candidato-forms/{{ obj.id }}" class="btn-edit btn btn-link">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <div class="paginator">
+            <mat-paginator [length]="totalElementos" [pageSize]="tamanho" [pageSizeOptions]="pageSizeOptions"
+              (page)="paginar($event)">
+            </mat-paginator>
+          </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

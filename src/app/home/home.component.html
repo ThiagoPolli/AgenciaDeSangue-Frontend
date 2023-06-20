@@ -1,0 +1,137 @@
+<div class="home-card">
+  <div class="container bgContainer pb-3">
+    <h2 class="mt-4 pt-4">HOME</h2>
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Consultar</li>
+    </ol>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row sparkboxes">
+          <div class="col-md-6">
+            <div class="box box1">
+              <div class="details">
+                <div class="row">
+                  <div class="col-md-12 ">
+                    <h4 class="mb-lg-2">homens obesos</h4>
+                  </div>
+                </div>
+                <div class="row iten">
+                  <div class="col-md-12">
+                    <h3 class="mb-lg-0">{{ persentualHomens.toFixed(2) }} %</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box box2">
+              <div class="details">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4 class="mb-lg-2">Mulheres Obesas</h4>
+                  </div>
+                </div>
+                <div class="row iten">
+                  <div class="col-md-12">
+                    <h3 class="mb-lg-0">{{ persentualFeminino.toFixed(2) }} %</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-md-5">
+          <div class="row" style="text-align: center;">
+
+            <div class="col-md-6" >
+              <ol class="breadcrumb mb-4" style="font-weight: bolder;">
+                <li class="breadcrumb-item active"><h4>Média por tipo sanguíneo</h4> </li>
+              </ol>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Sangue</th>
+                    <th>Média</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of mediaSanguineo">
+                    <td style="color: red; font-weight: bold;">{{ obj.tipo_sanguineo }}</td>
+                    <td>{{ obj.media.toFixed(2) }} %</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-6">
+              <ol class="breadcrumb mb-4" style="font-weight: bolder;">
+                <li class="breadcrumb-item active"><h4>Média IMC por idade</h4> </li>
+              </ol>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Idade</th>
+                    <th>Média</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of jsonData.faixasIdade; let i = index">
+                    <td>{{ item }}</td>
+                    <td>{{ jsonData.mediasIMC[i].toFixed(2) }} %</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-md-5">
+          <div class="row" style="text-align: center;">
+
+            <div class="col-md-6" >
+              <ol class="breadcrumb mb-4" style="font-weight: bolder;">
+                <li class="breadcrumb-item active"><h4>Quantidade de Doadores para cada Tipo Sanguíneo</h4> </li>
+              </ol>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Tipo Sanguineo</th>
+                    <th>Quantidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of qtdSangue.tiposSanguineos; let i = index">
+                    <td style="color: red; font-weight: bold;">{{ item }}</td>
+                    <td>{{ qtdSangue.quantidades[i] }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-6">
+              <ol class="breadcrumb mb-4" style="font-weight: bolder;">
+                <li class="breadcrumb-item active"><h4>Quantidade de Doadores por Estados</h4> </li>
+              </ol>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Estado</th>
+                    <th>Quantidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of qtdEstado">
+                    <td>{{ item.estado }}</td>
+                    <td>{{ item.quantidade }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
